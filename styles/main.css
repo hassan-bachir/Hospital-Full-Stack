@@ -61,6 +61,7 @@ header {
     position: relative;
     padding: 0 2rem 2rem 0;
     width: 100%;
+    
     background-color: #91D8E4;
 }
 header li {
@@ -137,10 +138,11 @@ header a:hover {
     display: none;
     height: 0;
     transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
 }
 
 .dropdown.open {
-    height: 270px;
+    height: 300px;
 }
 
 .dropdown li {
@@ -164,6 +166,7 @@ header a:hover {
     }
     .navbar .toggle{
         display: block;
+        margin-top: 20px;
     }
     .dropdown .toggle {
         display: block;
@@ -171,6 +174,8 @@ header a:hover {
     .dropdown {
         display: block;
         z-index: 2;
+        
+
       
     }
     .dropdown a {
