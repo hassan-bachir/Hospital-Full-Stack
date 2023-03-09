@@ -18,31 +18,40 @@ body {
     background-size: cover;
     
 }
+
+/* LOGO MENU */
+
 .above-header {
     width: 95%;
     display:flex;
     justify-content: space-between;
     padding-top: 10px;
+    flex-wrap: wrap;
 
 }
 .up-left {
     display: flex;
     justify-content: center;
+    
 }
 .logo {
     color: #91D8E4;
     padding-top:25px ;
+    margin-right: -20px;
     
 }
 .logo-img {
     height: 100px;
     width: auto ;
+    
 }
-.up-left {
+.up-right {
     max-height  : 100px;
+    padding-top: 10px;
 }
 
 .search-bar {
+
     height:50px;
     width: auto;
 }
@@ -86,6 +95,7 @@ header a:hover {
 .navbar .links {
     display: flex;
     gap:2rem;
+    padding-top: 30px;
 }
 .navbar .toggle {
     color: white;
@@ -105,6 +115,7 @@ header a:hover {
     font-size: 0.8rem;
     font-weight: bold;
     cursor: pointer;
+    margin-top: 25px;
 
 }
 .action-button:hover {
@@ -164,6 +175,15 @@ header a:hover {
     }
     .dropdown a {
         color: #1f6b97;
+    }
+    .above-header {
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .search-bar {
+        padding-bottom: 10px;
     }
 }
 @media (max-width:575px) {
