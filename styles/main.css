@@ -18,8 +18,34 @@ body {
     background-size: cover;
     
 }
+.above-header {
+    width: 95%;
+    display:flex;
+    justify-content: space-between;
+    padding-top: 10px;
 
+}
+.up-left {
+    display: flex;
+    justify-content: center;
+}
+.logo {
+    color: #91D8E4;
+    padding-top:25px ;
     
+}
+.logo-img {
+    height: 100px;
+    width: auto ;
+}
+.up-left {
+    max-height  : 100px;
+}
+
+.search-bar {
+    height:50px;
+    width: auto;
+}
 /* header styling */
 
 header {
