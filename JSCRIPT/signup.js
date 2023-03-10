@@ -102,16 +102,6 @@ submitButton.addEventListener('click', (event)=> {
     }
 
 
-    // const firstNameInput = document.querySelector('#user-name');
-    // const emailInput = document.querySelector('#email');
-    // const passwordInput = document.querySelector('#password');
-    // const dobInput = document.querySelector('#dob');
-
-    // const bloodTypeInput = document.querySelector('#blood-type');
-    // const ehrInput = document.querySelector('#ehr');
-    // const ssnInput = document.querySelector('#ssn');
-    // const positionInput = document.querySelector('#position');
-
 
 
     if(firstNameInput.value.trim() === ''){
