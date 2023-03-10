@@ -40,9 +40,14 @@ toggle.onclick = function () {
     const firstNameInput = document.querySelector('#user-name');
     const emailInput = document.querySelector('#email');
     const passwordInput = document.querySelector('#password');
-    const lastNameInput = document.querySelector('#dob');
+    const dobInput = document.querySelector('#dob');
 
-    let value = 0;  // Initialize the variable with a default value of 0
+    const bloodTypeInput = document.querySelector('#blood-type');
+    const ehrInput = document.querySelector('#ehr');
+    const ssnInput = document.querySelector('#ssn');
+    const positionInput = document.querySelector('#position');
+
+    let value = 0; 
 
     document.getElementById("test").addEventListener("click", function() {
         value = 1;
@@ -78,11 +83,11 @@ submitButton.addEventListener('click', (event)=> {
         alert('please enter a user name.');
         return;
     }
-    // const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (!emailRegExp.test(emailInput.value)) {
-    //   alert('Please enter a valid email address');
-    //   return;
-    // }
+    const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegExp.test(emailInput.value)) {
+      alert('Please enter a valid email address');
+      return;
+    }
    const arr =passwordInput.value.split('')
     if (arr.length <8 ) {
       alert('password must be at least 8 characters.');
@@ -94,16 +99,86 @@ submitButton.addEventListener('click', (event)=> {
 
     }
     
-const userData = {
-    firstName: firstNameInput.value,
-    lastName: lastNameInput.value,
-    userName: userNameInput.value,
-    email: emailInput.value,
-    // dateOfBirth: bDateInput.value,
-    password: passwordInput.value,
-  };
-  const data = JSON.stringify(userData);
-  console.log(data);
+// const userData = {
+//     firstName: firstNameInput.value,
+//     lastName: lastNameInput.value,
+//     userName: userNameInput.value,
+//     email: emailInput.value,
+//     // dateOfBirth: bDateInput.value,
+//     password: passwordInput.value,
+//   };
+//   const data = JSON.stringify(userData);
+//   console.log(data);
    
 
 });
+
+
+    let signup_btn = document.getElementById('submit-button');
+    signup_btn.addEventListener('click', signup);
+
+
+    function signup() {
+
+        let username = firstNameInput.value;
+        let email = emailInput.value;
+        let password = passwordInput.value;
+        let dob = dobInput.value;
+
+        let bloodType =bloodTypeInput.value;
+        let ehr = ehrInput.value;
+        let ssn = ssnInput.value;
+        let position = positionInput.value;
+       
+        if(value==1){
+            let data = new FormData();
+            data.append('username',username);
+            data.append('email', email);
+            data.append('password', password);
+            data.append('dob', dob);
+            data.append('userType', value);
+            data.append('bloodType', bloodType);
+            data.append('ehr', ehr);
+            
+
+        } else if(value==2){
+            let data = new FormData();
+            data.append('username',username);
+            data.append('email', email);
+            data.append('password', password);
+            data.append('dob', dob);
+            data.append('userType', value);
+            data.append('ssn', ssn);
+            data.append('position', position);
+        } else if(value==3){
+            let data = new FormData();
+            data.append('username',username);
+            data.append('email', email);
+            data.append('password', password);
+            data.append('dob', dob);
+            data.append('userType', value);
+
+        }
+
+        let data = new FormData();
+        data.append('username', username);
+        data.append('password', password);
+        data.append('first_name', first_name);
+        data.append('last_name', last_name);
+        data.append('email', email);
+
+        
+        axios({
+            "method": "post",
+            "url": "http://localhost/fullstack-ecommerce-project/signup.php",
+            "data": data
+        }).then((result) => {
+            console.log(result)
+            if (result.data.status == "success") {
+                alert("You have signed up successfully!")
+            }
+        }).catch((err) => {
+            console.error(err)
+        });
+
+    }
