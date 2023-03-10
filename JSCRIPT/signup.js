@@ -173,7 +173,7 @@ submitButton.addEventListener('click', (event)=> {
         
         axios({
             "method": "post",
-            "url": "http://localhost/fullstack-ecommerce-project/signup.php",
+            "url": "http://localhost/Hospital-Full-Stack/php/signup.php",
             "data": data
         }).then((result) => {
             console.log(result)
