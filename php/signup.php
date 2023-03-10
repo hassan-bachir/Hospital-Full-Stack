@@ -5,7 +5,7 @@ $username = $_POST['username'];
 $email = $_POST["email"];
 $password = $_POST['password'];
 $dob = $_POST['dob'];
-$user_type = $_POST['usertype'];
+$user_type = $_POST['userType'];
 
 if ($user_type == 1) {
     $blood_type = $_POST['bloodType'];
@@ -29,7 +29,7 @@ if ($username_exists > 0) {
     $response['status'] = "failed";
 } else {
     $query = $mysqli->prepare('insert into users(id,name,email,password,dob,usertype_id) values(DEFAULT,?,?,?,?,?)');
-    $query->bind_param('sssss', $username,$email, $hashed_password , $dob,$user_type );
+    $query->bind_param('sssss', $username,$email, $hashed_password , $dob, $user_type );
     $query->execute();
     $response['status'] = "success";
 }
