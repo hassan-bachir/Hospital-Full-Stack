@@ -322,6 +322,7 @@ header a:hover {
     width: auto;
     padding-top: 20px;
     padding-bottom: 10px;
+    cursor: pointer;
   }
   .shop-name1 {
   
