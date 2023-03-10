@@ -28,8 +28,8 @@ $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 if ($username_exists > 0) {
     $response['status'] = "failed";
 } else {
-    $query = $mysqli->prepare('insert into users(username,password,first_name,last_name,email) values(?,?,?,?,?)');
-    $query->bind_param('sssss', $username, $hashed_password, $first_name, $last_name, $email);
+    $query = $mysqli->prepare('insert into users(id,name,email,password,dob,usertype_id) values(DEFAULT,?,?,?,?,?)');
+    $query->bind_param('sssss', $username,$email, $hashed_password , $dob,$user_type );
     $query->execute();
     $response['status'] = "success";
 }

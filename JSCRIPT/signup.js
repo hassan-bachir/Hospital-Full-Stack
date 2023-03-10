@@ -47,6 +47,7 @@ toggle.onclick = function () {
     const ssnInput = document.querySelector('#ssn');
     const positionInput = document.querySelector('#position');
 
+
     let value = 0; 
 
     document.getElementById("test").addEventListener("click", function() {
@@ -101,35 +102,42 @@ submitButton.addEventListener('click', (event)=> {
     }
 
 
+    // const firstNameInput = document.querySelector('#user-name');
+    // const emailInput = document.querySelector('#email');
+    // const passwordInput = document.querySelector('#password');
+    // const dobInput = document.querySelector('#dob');
+
+    // const bloodTypeInput = document.querySelector('#blood-type');
+    // const ehrInput = document.querySelector('#ehr');
+    // const ssnInput = document.querySelector('#ssn');
+    // const positionInput = document.querySelector('#position');
+
 
 
     if(firstNameInput.value.trim() === ''){
         alert("please enter your name.");
         return;
     }
-    if(lastNameInput.value.trim()=== ''){
-        alert('please enter your last name.');
-        return;
-    }
-    if(userNameInput.value.trim()=== ''){
-        alert('please enter a user name.');
-        return;
-    }
+
     const emailRegExp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegExp.test(emailInput.value)) {
       alert('Please enter a valid email address');
       return;
     }
+     
    const arr =passwordInput.value.split('')
-    if (arr.length <8 ) {
-      alert('password must be at least 8 characters.');
-      return;
-    }
-    if(!checkbox.checked){
-        alert('read terms and conditions and check the box');
-        return;
+   if (arr.length <8 ) {
+     alert('password must be at least 8 characters.');
+     return;
+   }
 
-    }
+ 
+   
+    // if(!checkbox.checked){
+    //     alert('read terms and conditions and check the box');
+    //     return;
+
+    // }
 
 
 });
