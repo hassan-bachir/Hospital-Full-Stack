@@ -71,6 +71,38 @@ const submitButton = document.querySelector('#submit-button');
 
 submitButton.addEventListener('click', (event)=> {
     event.preventDefault();
+
+    if(value == 0){
+        alert('choose a category to sign up.');
+    }
+
+
+    if(value==1){
+        if(bloodTypeInput.value.trim() === ''){
+            alert("please enter blood type.");
+            return;
+        }
+        if(ehrInput.value.trim() === ''){
+            alert("please enter your EHR.");
+            return;
+        }
+    }
+
+    
+    if(value==2){
+        if(ssnInput.value.trim() === ''){
+            alert("enter social security number.");
+            return;
+        }
+        if(positionInput.value.trim() === ''){
+            alert("please enter your position.");
+            return;
+        }
+    }
+
+
+
+
     if(firstNameInput.value.trim() === ''){
         alert("please enter your name.");
         return;
@@ -98,18 +130,7 @@ submitButton.addEventListener('click', (event)=> {
         return;
 
     }
-    
-// const userData = {
-//     firstName: firstNameInput.value,
-//     lastName: lastNameInput.value,
-//     userName: userNameInput.value,
-//     email: emailInput.value,
-//     // dateOfBirth: bDateInput.value,
-//     password: passwordInput.value,
-//   };
-//   const data = JSON.stringify(userData);
-//   console.log(data);
-   
+
 
 });
 
@@ -130,43 +151,25 @@ submitButton.addEventListener('click', (event)=> {
         let ssn = ssnInput.value;
         let position = positionInput.value;
        
+        let data = new FormData();
+        data.append('username',username);
+        data.append('email', email);
+        data.append('password', password);
+        data.append('dob', dob);
+        data.append('userType', value);
+
         if(value==1){
-            let data = new FormData();
-            data.append('username',username);
-            data.append('email', email);
-            data.append('password', password);
-            data.append('dob', dob);
-            data.append('userType', value);
             data.append('bloodType', bloodType);
             data.append('ehr', ehr);
             
 
-        } else if(value==2){
-            let data = new FormData();
-            data.append('username',username);
-            data.append('email', email);
-            data.append('password', password);
-            data.append('dob', dob);
-            data.append('userType', value);
+        } 
+        else if(value==2){
             data.append('ssn', ssn);
             data.append('position', position);
-        } else if(value==3){
-            let data = new FormData();
-            data.append('username',username);
-            data.append('email', email);
-            data.append('password', password);
-            data.append('dob', dob);
-            data.append('userType', value);
-
-        }
-
-        let data = new FormData();
-        data.append('username', username);
-        data.append('password', password);
-        data.append('first_name', first_name);
-        data.append('last_name', last_name);
-        data.append('email', email);
-
+        } 
+      
+    
         
         axios({
             "method": "post",
