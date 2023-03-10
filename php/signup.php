@@ -10,6 +10,8 @@ $user_type = $_POST['userType'];
 if ($user_type == 1) {
     $blood_type = $_POST['bloodType'];
     $ehr = $_POST['ehr'];
+
+
 } elseif ($user_type == 2) {
     $ssn = $_POST['ssn'];
     $position = $_POST['position'];
@@ -31,6 +33,31 @@ if ($username_exists > 0) {
     $query = $mysqli->prepare('insert into users(id,name,email,password,dob,usertype_id) values(DEFAULT,?,?,?,?,?)');
     $query->bind_param('sssss', $username,$email, $hashed_password , $dob, $user_type );
     $query->execute();
+    
+    //we need this id for the patient or employee 
+    $user_id = $mysqli->insert_id;
+    
+if ($user_type == 1) {
+    $blood_type = $_POST['bloodType'];
+    $ehr = $_POST['ehr'];
+
+    $query2 =$mysqli->prepare('insert into patients(id,user_id,blood_type,ehr) values(DEFAULT,?,?,?)');
+    $query2->bind_param('iss',$user_id,$blood_type,$ehr);
+    $query2->execute();
+
+
+} elseif ($user_type == 2) {
+    $ssn = $_POST['ssn'];
+    $position = $_POST['position'];
+    $date = date('d-m-Y');
+    $query3 =$mysqli->prepare('insert into employees(id,user_id,ssn,date_joined,position) values(DEFAULT,?,?,?,?)');
+    $query3->bind_param('isss',$user_id,$ssn,$date,$position);
+    $query3->execute();
+}
+
+
+
+
     $response['status'] = "success";
 }
 
