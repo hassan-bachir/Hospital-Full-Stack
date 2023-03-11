@@ -52,17 +52,14 @@ toggle.onclick = function () {
 
     document.getElementById("test").addEventListener("click", function() {
         value = 1;
-        console.log(value)
     });
     
     document.getElementById("test1").addEventListener("click", function() {
         value = 2;  
-        console.log(value)
     });
     
     document.getElementById("test2").addEventListener("click", function() {
         value = 3;  
-        console.log(value)
     });
     
 
@@ -123,63 +120,57 @@ submitButton.addEventListener('click', (event)=> {
 
  
    
-    // if(!checkbox.checked){
-    //     alert('read terms and conditions and check the box');
-    //     return;
+//    let signup_btn = document.getElementById('submit-button');
+   submitButton.addEventListener('click', signup);
 
-    // }
 
 
 });
 
 
-    let signup_btn = document.getElementById('submit-button');
-    signup_btn.addEventListener('click', signup);
+function signup() {
 
+    let username = firstNameInput.value;
+    let email = emailInput.value;
+    let password = passwordInput.value;
+    let dob = dobInput.value;
 
-    function signup() {
+    let bloodType =bloodTypeInput.value;
+    let ehr = ehrInput.value;
+    let ssn = ssnInput.value;
+    let position = positionInput.value;
+   
+    let data = new FormData();
+    data.append('username',username);
+    data.append('email', email);
+    data.append('password', password);
+    data.append('dob', dob);
+    data.append('userType', value);
 
-        let username = firstNameInput.value;
-        let email = emailInput.value;
-        let password = passwordInput.value;
-        let dob = dobInput.value;
-
-        let bloodType =bloodTypeInput.value;
-        let ehr = ehrInput.value;
-        let ssn = ssnInput.value;
-        let position = positionInput.value;
-       
-        let data = new FormData();
-        data.append('username',username);
-        data.append('email', email);
-        data.append('password', password);
-        data.append('dob', dob);
-        data.append('userType', value);
-
-        if(value==1){
-            data.append('bloodType', bloodType);
-            data.append('ehr', ehr);
-            
-
-        } 
-        else if(value==2){
-            data.append('ssn', ssn);
-            data.append('position', position);
-        } 
-      
-    
+    if(value==1){
+        data.append('bloodType', bloodType);
+        data.append('ehr', ehr);
         
-        axios({
-            "method": "post",
-            "url": "http://localhost/Hospital-Full-Stack/php/signup.php",
-            "data": data
-        }).then((result) => {
-            console.log(result)
-            if (result.data.status == "success") {
-                alert("You have signed up successfully!")
-            }
-        }).catch((err) => {
-            console.error(err)
-        });
 
-    }
+    } 
+    else if(value==2){
+        data.append('ssn', ssn);
+        data.append('position', position);
+    } 
+  
+
+    
+    axios({
+        "method": "post",
+        "url": "http://localhost/Hospital-Full-Stack/php/signup.php",
+        "data": data
+    }).then((result) => {
+        console.log(result)
+        if (result.data.status == "success") {
+            alert("You have signed up successfully!")
+        }
+    }).catch((err) => {
+        console.error(err)
+    });
+
+}
