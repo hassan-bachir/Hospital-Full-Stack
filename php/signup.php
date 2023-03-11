@@ -19,7 +19,7 @@ if ($user_type == 1) {
 
 
 
-$check_username = $mysqli->prepare('select name from users where name=?');
+$check_username = $mysqli->prepare('select username from users where username=?');
 $check_username->bind_param('s', $username);
 $check_username->execute();
 $check_username->store_result();
@@ -30,7 +30,7 @@ $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 if ($username_exists > 0) {
     $response['status'] = "failed";
 } else {
-    $query = $mysqli->prepare('insert into users(id,name,email,password,dob,usertype_id) values(DEFAULT,?,?,?,?,?)');
+    $query = $mysqli->prepare('insert into users(id,username,email,password,dob,usertype_id) values(DEFAULT,?,?,?,?,?)');
     $query->bind_param('sssss', $username,$email, $hashed_password , $dob, $user_type );
     $query->execute();
     
