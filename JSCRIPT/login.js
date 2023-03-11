@@ -32,13 +32,13 @@ loginButton.addEventListener('click',(event)=>{
       return;
     }
 
-    loginButton.addEventListener('click', signin);
+   
 
 
 
 
 });
-
+loginButton.addEventListener('click', signin);
 function signin() {
   let username = document.getElementById('login-user-name').value;
   let password = document.getElementById('login-password').value;
@@ -55,7 +55,7 @@ function signin() {
       
       window.location.href = 'main.html';
     } else if (res.data.response === "user not found") {
-      
+      console.log(res.data.num_rows);
       alert("User not found.");
     } else if (res.data.response === "Incorrect password") {
      

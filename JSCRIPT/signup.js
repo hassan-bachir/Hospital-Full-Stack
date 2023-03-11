@@ -121,12 +121,12 @@ submitButton.addEventListener('click', (event)=> {
  
    
 //    let signup_btn = document.getElementById('submit-button');
-   submitButton.addEventListener('click', signup);
-
+  
 
 
 });
 
+submitButton.addEventListener('click', signup);
 
 function signup() {
 
