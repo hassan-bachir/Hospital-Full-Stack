@@ -1,26 +1,28 @@
 <?php 
-
-include('connection.php');
 session_start();
+include('connection.php');
+
 
 
 $username = $_POST['username'];
 $password = $_POST['password'];
 
 
-$query = $mysqli->prepare('select id,username,email,password,dob,usertype_id from users where username=?');
+$query = $mysqli->prepare('select id,username,email,password,dob,usertype_id from users where username = ?');
 $query->bind_param('s', $username);
 $query->execute();
 
 $query->store_result();
 $num_rows = $query->num_rows();
+
+
 $query->bind_result($id, $username1,$email,$hashed_password, $dob, $usertype_id);
 $query->fetch();
 $response = [];
 
 if ($num_rows == 0) {
     $response['response'] = "user not found";
-    $response['num_rows'] = $num_rows;
+    
 } else {
     
     if (password_verify($password, $hashed_password)) {

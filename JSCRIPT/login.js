@@ -41,21 +41,22 @@ loginButton.addEventListener('click',(event)=>{
 loginButton.addEventListener('click', signin);
 function signin() {
   let username = document.getElementById('login-user-name').value;
+  
   let password = document.getElementById('login-password').value;
   let data = new FormData();
   data.append('username', username);
   data.append('password', password);
   
-  axios.post('http://localhost/fullstack-ecommerce-project/login.php', data)
+  axios.post('http://localhost/Hospital-Full-Stack/php/login.php', data)
   .then(function (res) {
     console.log(res.data)
     if (res.data.response === "logged in") {
       // Save user ID in sessionStorage
-      window.sessionStorage.setItem('user_id', res.data.id);
-      
-      window.location.href = 'main.html';
+      window.sessionStorage.setItem('user_id', res.data.id);   
+      window.location.href = 'index.html';
+
     } else if (res.data.response === "user not found") {
-      console.log(res.data.num_rows);
+
       alert("User not found.");
     } else if (res.data.response === "Incorrect password") {
      
