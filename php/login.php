@@ -2,4 +2,7 @@
 
 include('connection.php');
 
-$username 
+
+
+$username = $_POST['username'];
+$password = $_POST['password'];
