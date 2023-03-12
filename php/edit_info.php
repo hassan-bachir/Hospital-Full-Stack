@@ -39,6 +39,12 @@ if($user_type=='employee'){
       }
 
     
+$sql = "UPDATE employees SET ";
+foreach ($new_data as $field => $value) {
+  $sql .= "$field='$value', ";
+}
+$sql = rtrim($sql, ", "); 
+$sql .= " WHERE id=$user_id";
 
 }
 elseif ($user_type='patient'){
@@ -49,5 +55,25 @@ elseif ($user_type='patient'){
         $new_data['ehr'] = $_REQUEST['ehr'];
       }
 
+      $sql = "UPDATE patients SET ";
+foreach ($new_data as $field => $value) {
+  $sql .= "$field='$value', ";
+}
+$sql = rtrim($sql, ", "); 
+$sql .= " WHERE id=$user_id";
 
 }
+
+$sql = "UPDATE users SET ";
+foreach ($new_data as $field => $value) {
+  $sql .= "$field='$value', ";
+}
+$sql = rtrim($sql, ", "); 
+$sql .= " WHERE id=$user_id";
+
+
+if (mysqli_query($mysqli, $sql)) {
+    echo "User data updated successfully";
+  } else {
+    echo "Error updating user data: " . mysqli_error($mysqli);
+  }
