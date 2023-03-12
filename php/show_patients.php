@@ -1,7 +1,7 @@
 <?php
 include('connection.php');
 
-$result = $mysqli->query("SELECT users.id,users.username,  FROM patients");
+$result = $mysqli->query("SELECT users.id,users.username,patients.blood_type,patients.ehr FROM users JOIN Patients ON users.id=patients.id ");
 
 $data =[];
 
