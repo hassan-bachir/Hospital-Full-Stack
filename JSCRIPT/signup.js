@@ -48,18 +48,18 @@ toggle.onclick = function () {
     const positionInput = document.querySelector('#position');
 
 
-    let value = 0; 
+    let value = ''; 
 
     document.getElementById("test").addEventListener("click", function() {
-        value = 1;
+        value = 'patient';
     });
     
     document.getElementById("test1").addEventListener("click", function() {
-        value = 2;  
+        value = 'employee';  
     });
     
     document.getElementById("test2").addEventListener("click", function() {
-        value = 3;  
+        value = 'admin';  
     });
     
 
@@ -70,12 +70,12 @@ const submitButton = document.querySelector('#submit-button');
 submitButton.addEventListener('click', (event)=> {
     event.preventDefault();
 
-    if(value == 0){
+    if(value == ''){
         alert('choose a category to sign up.');
     }
 
 
-    if(value==1){
+    if(value=='patient'){
         if(bloodTypeInput.value.trim() === ''){
             alert("please enter blood type.");
             return;
@@ -87,7 +87,7 @@ submitButton.addEventListener('click', (event)=> {
     }
 
     
-    if(value==2){
+    if(value=='employee'){
         if(ssnInput.value.trim() === ''){
             alert("enter social security number.");
             return;
@@ -135,7 +135,7 @@ function signup() {
     let password = passwordInput.value;
     let dob = dobInput.value;
 
-    let bloodType =bloodTypeInput.value;
+    let bloodType = bloodTypeInput.value;
     let ehr = ehrInput.value;
     let ssn = ssnInput.value;
     let position = positionInput.value;
@@ -147,13 +147,13 @@ function signup() {
     data.append('dob', dob);
     data.append('userType', value);
 
-    if(value==1){
+    if(value=='patient'){
         data.append('bloodType', bloodType);
         data.append('ehr', ehr);
         
 
     } 
-    else if(value==2){
+    else if(value=='employee'){
         data.append('ssn', ssn);
         data.append('position', position);
     } 
