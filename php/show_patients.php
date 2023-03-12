@@ -1,7 +1,7 @@
 <?php
 include('connection.php');
 
-$result = $mysqli->query("SELECT * FROM patients");
+$result = $mysqli->query("SELECT users.id,users.username,  FROM patients");
 
 $data =[];
 
@@ -15,3 +15,7 @@ if ($result->num_rows > 0) {
 
   echo json_encode($data);
 ?>
+<!-- 
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID; -->

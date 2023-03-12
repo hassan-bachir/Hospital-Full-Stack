@@ -30,7 +30,7 @@ $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 if ($username_exists > 0) {
     $response['status'] = "failed";
 } else {
-    $query = $mysqli->prepare('insert into users(id,username,email,password,dob,usertype_id) values(DEFAULT,?,?,?,?,?)');
+    $query = $mysqli->prepare('insert into users(id,username,email,password,dob,user_type) values(DEFAULT,?,?,?,?,?)');
     $query->bind_param('sssss', $username,$email, $hashed_password , $dob, $user_type );
     $query->execute();
     
