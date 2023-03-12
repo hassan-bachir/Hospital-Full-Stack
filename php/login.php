@@ -21,12 +21,12 @@ $query->fetch();
 $response = [];
 
 if ($num_rows == 0) {
-    $response['response'] = "user not found";
+    $response['status'] = "user not found";
     
 } else {
     
     if (password_verify($password, $hashed_password)) {
-        $response['response'] = "logged in";
+        $response['status'] = "logged in";
         $_SESSION['id'] = $id;
         $_SESSION['username']= $username1;
         $_SESSION['email'] = $email;
@@ -38,7 +38,7 @@ if ($num_rows == 0) {
 
        
     } else {
-        $response["response"] = "Incorrect password";
+        $response["status"] = "Incorrect password";
     }
 }
 

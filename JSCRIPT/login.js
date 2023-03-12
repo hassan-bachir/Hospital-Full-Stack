@@ -55,10 +55,10 @@ function signin() {
       window.sessionStorage.setItem('user_id', res.data.id);   
       window.location.href = 'index.html';
 
-    } else if (res.data.response === "user not found") {
+    } else if (res.data.status === "user not found") {
 
       alert("User not found.");
-    } else if (res.data.response === "Incorrect password") {
+    } else if (res.data.status === "Incorrect password") {
      
       alert("Incorrect password.");
     }
