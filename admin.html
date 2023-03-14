@@ -4,103 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/main.css">
-    <title>Bachir Hospital</title>
-     <!-- font awsome -->
-    
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-  
-     
-     <!-- google fonts -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/admin.css">
 
+    <!-- FONT AWSOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <title>Admin Panel</title>
 </head>
 <body>
-    <div class="above-header">
-        <div class="up-left">
-            <h1 class="logo">BACHIR</h1>
-            <img class="logo-img" src="images/logo.png">
-        </div>
-        <div class="up-right">
-            <img class="search-bar" src="images/search1.png">
-        </div>
-    </div>
-    <header>
-        <div class="navbar">
-            <div class="logo"><a href="#">Main Menu</a></div>
-            
-            <ul class="links">
-                <li><a href="Course.html">admin menu</a></li>
-                <li><a href="#" class="activate-merge">patient menu</a></li>
-                <li><a href="#" class="palind">employee menu</a></li>
-                <li><a href="#" class="prim">hospitals</a></li>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="/images/logo.png" class="logo">
+                    <span>ADMIN PANEL</span>
+                </a>
+            </li>
 
-                <li><a href="#" class="ayy">ayyy</a></li>
-            </ul>
-            
-            <a href="login.html" class="action-button">LOGIN</a>
-            <div class="toggle">
-                <i class="fa fa-bars"></i>
-            </div>
-        </div>
-        <div class="dropdown">
-            <li><a href="Course.html">admin menu</a></li>
-            <li><a href="#" class="activate-merge">patient menu</a></li>
-            <li><a href="#" class="palind">employee menu</a></li>
-            <li><a href="#" class="prim">hospitals</a></li>
-            <li><a href="#" class="ayy">ayyy</a></li>
-            <li><a href="login.html" class="action-button">LOGIN</a></li>
-        </div>
-    </header>
-    
-    <div class="data">hassan bachir</div>
+            <li><a href="#">
+                <i class="fas fa-home"></i>
+                <span class="nav-item">Home</span>    
+            </a></li>
 
+            <li><a href="#">
+                <i class="fas fa-user"></i>
+                <span class="nav-item">Patients</span>    
+            </a></li>
 
+            <li><a href="#">
+                <i class="fa-solid fa-wallet"></i>
+                <span class="nav-item">Employees</span>    
+            </a></li>
 
-    <footer class="footer">
-        <div class="slogan">
-            
-            <div><img class="logo-footer" src="./images/medicross.png" alt="Logo"></div><br>
-            
-        </div>
-        <div class="socialmedia">
-            <div>Connect With Us</div><br>
-            <div class="socialmedia-item">
-                <div><img class="icons" src="./images/insta.png" alt="insta"></div>
-                <div class="socialmedia-name">our instagram account</div>
-            </div>
-            <div class="socialmedia-item">
-                <div><img class="icons" src="./images/fb2.png" alt="fb"></div>
-                <div class="socialmedia-name">our facebook page!</div>
-            </div>
-            <div class="socialmedia-item">
-                <div><img class="icons" src="./images/telephone-62.png" alt="telephone"></div>
-                <div class="socialmedia-name">+961 3 123456</div>
-                
-            </div>
-            <div class="socialmedia-item">
-                
-            </div>
+            <li><a href="#">
+                <i class="fa-solid fa-chart-line"></i>
+                <span class="nav-item">hospitals</span>    
+            </a></li>
 
-        </div>
-        <div class="newsletter">
-            <div>Newsletter</div>
-            <div class="form1">
-                <form>
-                    <input type="email" id="email-input" name="email" placeholder="Enter your email address">
-                    <button class="subscribe-button-footer" type="submit">Subscribe</button>
-                </form>
-            </div>
-            <div class="space"></div>
-            <!-- <div><img style="height: 40px; width: auto;" src="../images/payment.png" alt="payment"></div> -->
+            <li><a href="#">
+                <i class="fas fa-chart-bar"></i>
+                <span class="nav-item">Services</span>    
+            </a></li>
 
-        </div>
+            <li><a href="#">
+                <i class="fa-solid fa-chart-line"></i>
+                <span class="nav-item">Statistics</span>    
+            </a></li>
 
-        </div>
-    </footer>
-    <script src="JSCRIPT/jquery-3.6.4.js"></script>
-    <script src="JSCRIPT/admin.js"></script>
+            <li><a href="#">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span class="nav-item">Logout</span>    
+            </a></li>
+
+        </ul>
+    </nav>
+    <script src="./JSCRIPT/admin.js"></script>
 </body>
 </html>
