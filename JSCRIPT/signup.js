@@ -7,7 +7,7 @@ toggle.onclick = function () {
     dropdown.classList.toggle('open');
     const isopen =dropdown.classList.contains('open');}
     
-//HIDDEN FORM CONFIG
+    //HIDDEN FORM CONFIG
 
     function showForm1() {
         var form = document.getElementById("myForm");
@@ -34,48 +34,49 @@ toggle.onclick = function () {
      const test1 = document.querySelector('#test1');
      test1.addEventListener('click',showForm2);
      
+       //DEFINE USER TYPE BASED ON TOGGLED PICTURE
+    let user_type = ''; 
 
-     //SIGNUP VALIDATIONS
+    document.getElementById("test").addEventListener("click", function() {
+        user_type = 'patient';
+    });
+    
+    document.getElementById("test1").addEventListener("click", function() {
+        user_type = 'employee';  
+    });
+    
+    document.getElementById("test2").addEventListener("click", function() {
+        user_type = 'admin';  
+    });
+    
 
-    const firstNameInput = document.querySelector('#user-name');
+    
+
+    const firstNameInput = document.querySelector('#username');
     const emailInput = document.querySelector('#email');
     const passwordInput = document.querySelector('#password');
     const dobInput = document.querySelector('#dob');
 
-    const bloodTypeInput = document.querySelector('#blood-type');
+    const bloodTypeInput = document.querySelector('#blood_type');
     const ehrInput = document.querySelector('#ehr');
     const ssnInput = document.querySelector('#ssn');
     const positionInput = document.querySelector('#position');
 
 
-    let value = ''; 
 
-    document.getElementById("test").addEventListener("click", function() {
-        value = 'patient';
-    });
-    
-    document.getElementById("test1").addEventListener("click", function() {
-        value = 'employee';  
-    });
-    
-    document.getElementById("test2").addEventListener("click", function() {
-        value = 'admin';  
-    });
-    
 
-    // const checkbox = document.querySelector('input[type="checkbox"]');
+    const submitButton = document.querySelector('#submit_button');
 
-const submitButton = document.querySelector('#submit-button');
+        //VALIDATIONS
+    submitButton.addEventListener('click', (event)=> {
+        event.preventDefault();
 
-submitButton.addEventListener('click', (event)=> {
-    event.preventDefault();
-
-    if(value == ''){
+    if(user_type == ''){
         alert('choose a category to sign up.');
     }
 
 
-    if(value=='patient'){
+    if(user_type=='patient'){
         if(bloodTypeInput.value.trim() === ''){
             alert("please enter blood type.");
             return;
@@ -87,7 +88,7 @@ submitButton.addEventListener('click', (event)=> {
     }
 
     
-    if(value=='employee'){
+    if(user_type=='employee'){
         if(ssnInput.value.trim() === ''){
             alert("enter social security number.");
             return;
@@ -120,11 +121,11 @@ submitButton.addEventListener('click', (event)=> {
 
  
    
-//    let signup_btn = document.getElementById('submit-button');
   
 
 
 });
+
 
 submitButton.addEventListener('click', signup);
 
@@ -145,15 +146,15 @@ function signup() {
     data.append('email', email);
     data.append('password', password);
     data.append('dob', dob);
-    data.append('userType', value);
+    data.append('userType', user_type);
 
-    if(value=='patient'){
+    if(user_type=='patient'){
         data.append('bloodType', bloodType);
         data.append('ehr', ehr);
         
 
     } 
-    else if(value=='employee'){
+    else if(user_type=='employee'){
         data.append('ssn', ssn);
         data.append('position', position);
     } 
